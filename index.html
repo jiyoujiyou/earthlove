@@ -1,1 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>협동조합 지구애나비 | 지속가능한 미래를 위한 솔루션</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #1A535C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-chart-item {
+            background-color: #FFFFFF;
+            border: 2px solid #FF6B6B;
+            color: #495057;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .flow-chart-item:hover {
+            transform: translateY(-5px);
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #FF6B6B;
+            align-self: center;
+        }
+        /* Make video responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .text-section {
+            background-color: #f0fdf4; /* A soft, light green for harmony */
+            border-left: 5px solid #4ECDC4; /* A vibrant border */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #4ECDC4;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-[#4ECDC4] text-white text-center py-12 px-4">
+        <h1 class="text-4xl md:text-6xl font-black mb-2">협동조합 지구애나비</h1>
+        <p class="text-lg md:text-2xl font-bold">지속가능한 지구에서의 삶, 우리의 목표는 같습니다.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="intro" class="my-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="text-3xl font-bold text-[#1A535C] mb-4">문제의식: 행동으로 이어지지 않는 환경 교육</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        기후 위기의 심각성에도 불구하고, 현재의 환경 교육은 대부분 지식 전달에만 머물러 있습니다. 2022년 조사에 따르면, 환경 교육 방식은 여전히 교사 중심의 강의와 자료 조사가 높은 비중을 차지하며, 이는 학습자의 실제 행동 변화를 이끌어내는 데 명백한 한계를 보입니다. 지구애나비는 바로 이 지점에서 시작합니다.
+                    </p>
+                </div>
+                <div class="chart-container h-64 md:h-80">
+                    <canvas id="educationMethodChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="my-16 bg-white rounded-lg shadow-lg p-8 md:p-12">
+            <h2 class="text-4xl font-black text-center text-[#FF6B6B] mb-8">지구애나비의 하이브리드 솔루션</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                지구애나비는 교육, 생산, 문화예술을 융합한 독창적인 접근법으로 지속가능발전목표(SDGs)를 향한 구체적인 행동을 만들어냅니다. 우리는 '재미'와 '상호작용'을 통해 모든 세대가 공감하고 참여하는 긍정적인 나비효과를 일으킵니다.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 rounded-lg p-6 text-center">
+                    <div class="text-6xl mb-4">🎓</div>
+                    <h3 class="text-2xl font-bold text-[#1A535C] mb-2">SDGs 교육 콘텐츠</h3>
+                    <p class="text-gray-700">AI 기반 맞춤형 교육, 환경 그림책, 교육 키트 등 행동 중심의 상호작용 콘텐츠로 교육의 패러다임을 전환합니다.</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 text-center">
+                    <div class="text-6xl mb-4">♻️</div>
+                    <h3 class="text-2xl font-bold text-[#1A535C] mb-2">자원순환 업사이클링</h3>
+                    <p class="text-gray-700">폐청바지, 커피 캡슐 등을 활용한 제품을 개발하여 가치 소비를 확산하고 자원순환의 중요성을 알립니다.</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 text-center">
+                    <div class="text-6xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold text-[#1A535C] mb-2">문화예술 캠페인</h3>
+                    <p class="text-gray-700">환경 영화제, ESG 콘서트 등 문화 콘텐츠를 통해 SDGs를 쉽고 재미있게 느끼고 참여하도록 이끕니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="partnership" class="my-16">
+            <h2 class="text-4xl font-black text-center text-[#1A535C] mb-8">주요 파트너십: ㈜책과 콩나무와 MOU 체결</h2>
+            <div class="bg-white rounded-lg shadow-md p-8 md:p-12">
+                <div class="text-section">
+                    <p class="text-gray-800 leading-relaxed">
+                        지구애나비는 그림책 전문 출판사 ㈜책과 콩나무와 업무협약(MOU)을 체결하고 그림책 기반 문화예술 교육 콘텐츠 개발에 박차를 가하고 있습니다. 이번 협약을 통해 'One-Source Multi-Use' 전략을 더욱 강화하여, 그림책을 활용한 다양한 교육 프로그램과 ESG 교육 콘텐츠를 개발하고 유아·아동 교육 시장에 적극적으로 진출할 계획입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-study" class="my-16">
+            <h2 class="text-4xl font-black text-center text-[#1A535C] mb-12">주요 활동 사례</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-bold text-[#FF6B6B] mb-4">지구애학교 랩수업: 래퍼와 함께하는 환경교육</h3>
+                    <div class="mb-4 relative">
+                        <!-- Loading spinner -->
+                        <div id="image-spinner" class="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg">
+                            <div class="loading-spinner"></div>
+                        </div>
+                        <img 
+                            id="case-study-image"
+                            src="https://googleusercontent.com/file_content/uploaded:KakaoTalk_20240108_005518448.jpg-fe4bf2dc-2aff-44b1-8ba9-57b272a3dee9" 
+                            alt="지구애학교 랩수업 이미지" 
+                            class="rounded-lg shadow-md mb-4" 
+                            style="display:none;"
+                        >
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        래퍼 비버와 함께하는 랩 수업은 단순한 지식 전달을 넘어, 학생들이 직접 환경에 대한 랩 가사를 쓰고 부르며 창의적으로 환경 문제를 표현하게 합니다. 이를 통해 환경교육에 대한 흥미와 참여도를 높이고, 딱딱한 정보가 아닌 즐거운 문화 활동으로 인식하도록 돕습니다.
+                    </p>
+                    <div class="text-center font-bold text-[#1A535C]">
+                        <p>1. 신나는 비트를 들어요. 🎶</p>
+                        <p>2. 지구를 생각하며 랩 가사를 써봐요. ✍️</p>
+                        <p>3. 래퍼 선생님과 함께 불러봐요.🎤</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-bold text-[#FF6B6B] mb-4">지구애나비 그림그린: 그림책으로 잇는 세대 간 소통</h3>
+                    <div class="mb-4 video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/4KI41INWy0U" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        '우리 마을 가족일기'와 같은 그림책을 매개로 광명시 지역 어르신들과 소통하는 모임을 진행합니다. 그림책을 통해 어르신들의 삶의 이야기를 듣고 그림으로 표현하며, 세대 간의 단절을 넘어 소중한 경험과 지혜를 공유하는 연결고리를 만듭니다.
+                    </p>
+                    <div class="text-center font-bold text-[#1A535C]">
+                        <p>그림책을 통해 어르신들과 삶의 이야기를 나누고,</p>
+                        <p>보석 같은 이야기를 또 다른 세대에게 전하는 연결고리입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business-flow" class="my-16">
+            <h2 class="text-4xl font-black text-center text-[#1A535C] mb-12">가치 창출 프로세스: One-Source Multi-Use</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+                <div class="flow-chart-item">하나의 아이디어<br>(환경 그림책)</div>
+                <div class="flow-arrow transform rotate-90 md:rotate-0">➔</div>
+                <div class="flow-chart-item">다양한 콘텐츠로 확장<br>(교육 키트, 영상, 공연)</div>
+                <div class="flow-arrow transform rotate-90 md:rotate-0">➔</div>
+                <div class="flow-chart-item">사회적 가치 창출<br>(행동 변화, 인식 개선)</div>
+            </div>
+             <p class="text-center text-md text-gray-600 max-w-3xl mx-auto mt-8">
+                하나의 원천 콘텐츠(One-Source)를 다양한 매체로 확장(Multi-Use)하여 교육 효과와 사회적 영향력을 극대화하는 전략입니다. 이번 MOU를 통해 이 전략은 더욱 강력한 추진력을 얻게 되었습니다.
+            </p>
+        </section>
+        
+        <section id="esg" class="my-16">
+             <h2 class="text-4xl font-black text-center text-[#1A535C] mb-12">ESG 임팩트 프레임워크</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                     <h3 class="text-2xl font-bold text-[#FF6B6B] mb-4">ESG 추진 계획</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        지구애나비는 설립 초기부터 ESG 가치를 경영의 핵심 원칙으로 삼고 있습니다. 환경 보호, 사회적 책임, 투명한 거버넌스를 통해 지속가능한 성장을 추구하며, 구체적인 단기 및 중·장기 목표를 설정하여 체계적으로 이행하고 있습니다.
+                    </p>
+                    <div class="chart-container h-80">
+                        <canvas id="esgPlanChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-[#FF6B6B] mb-4">주요 성과 및 목표</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <div>
+                            <p class="font-bold">🌳 환경 (Environmental)</p>
+                            <p>폐자원 재활용을 통한 온실가스 감축(ex. 캡슐커피 용기 재활용), 저탄소 디지털 콘텐츠 제작. 장기적으로는 재생에너지 기반의 친환경 사옥 건립을 목표로 합니다.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold">👥 사회 (Social)</p>
+                            <p>취약계층 교육 기부, 경력보유여성 등 지역 인재 채용을 통한 일자리 창출. 여성친화경영을 실천합니다.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold">🏛️ 거버넌스 (Governance)</p>
+                            <p>투명한 윤리경영 체계를 수립하고, 조합원의 의견을 존중하는 민주적 의사결정 구조를 확립합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-16 bg-[#4ECDC4] text-white rounded-lg shadow-lg p-8 md:p-12">
+            <h2 class="text-4xl font-black text-center mb-12">미래를 향한 로드맵</h2>
+            <div class="relative">
+                <div class="border-l-4 border-white absolute h-full top-0 left-1/2 -ml-0.5"></div>
+                <div class="mb-8 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/2"></div>
+                    <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-12 h-12 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-[#1A535C] text-xl">2025년: 기반 구축</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-700">AI 교육 프로토타입 완성, 그림책 출간, 예비 사회적기업 지정</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-12 h-12 rounded-full">
+                        <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-[#1A535C] text-xl">중기 목표: 영향력 확장</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-700">'변화 액션 지표' 개발, 사회적기업 인증 획득, 파트너십 확대</p>
+                    </div>
+                </div>
+                <div class="mb-8 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-[#FF6B6B] shadow-xl w-12 h-12 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <h3 class="font-bold text-[#1A535C] text-xl">장기 비전: 문화 조성</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-700">탄소중립 실천 문화 선도, 신규 사회적경제 모델 발굴 및 확산</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#1A535C] text-white text-center p-8">
+        <p class="font-bold">협동조합 지구애나비</p>
+        <p>경기도 광명시 오리로 362, 5층 (소하동, 광명시창업지원센터)</p>
+        <p>earthlovebutterfly@gmail.com</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const energeticPlayfulPalette = {
+            primary: '#FF6B6B',
+            secondary: '#4ECDC4',
+            accent: '#FFE66D',
+            dark: '#1A535C',
+            light: '#F7FFF7',
+        };
+
+        const educationCtx = document.getElementById('educationMethodChart').getContext('2d');
+        new Chart(educationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['강의 및 자료조사', '참여 및 활동', '융합형 콘텐츠'],
+                datasets: [{
+                    label: '환경교육 학습 방식',
+                    data: [65, 25, 10],
+                    backgroundColor: [
+                        energeticPlayfulPalette.primary,
+                        energeticPlayfulPalette.secondary,
+                        energeticPlayfulPalette.accent,
+                    ],
+                    borderColor: energeticPlayfulPalette.light,
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '기존 환경교육 방식의 한계 (2022년)',
+                        font: { size: 16, weight: 'bold' },
+                        color: energeticPlayfulPalette.dark,
+                        padding: { top: 10, bottom: 20 }
+                    },
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const esgCtx = document.getElementById('esgPlanChart').getContext('2d');
+        const originalLabels = [
+            '저탄소 디지털 그림책 제작', 
+            '업사이클링 상품 개발', 
+            '취약계층 교육 기부', 
+            '지역 내 일자리 창출', 
+            '윤리경영 체계 수립'
+        ];
+        const wrappedLabels = originalLabels.map(wrapLabel);
+
+        new Chart(esgCtx, {
+            type: 'bar',
+            data: {
+                labels: wrappedLabels,
+                datasets: [{
+                    label: '2025년 주요 계획',
+                    data: [80, 90, 70, 75, 85],
+                    backgroundColor: [
+                        energeticPlayfulPalette.secondary,
+                        energeticPlayfulPalette.primary,
+                        energeticPlayfulPalette.accent,
+                        energeticPlayfulPalette.secondary,
+                        energeticPlayfulPalette.primary,
+                    ],
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + "%"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: '2025년 ESG 추진 계획 달성 목표',
+                        font: { size: 16, weight: 'bold' },
+                        color: energeticPlayfulPalette.dark,
+                        padding: { top: 10, bottom: 20 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        // Image loading logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageElement = document.getElementById('case-study-image');
+            const spinnerElement = document.getElementById('image-spinner');
+
+            if (imageElement) {
+                imageElement.onload = () => {
+                    spinnerElement.style.display = 'none';
+                    imageElement.style.display = 'block';
+                };
+
+                imageElement.onerror = () => {
+                    spinnerElement.style.display = 'none';
+                    // You could display an error message here if you want
+                    console.error('Failed to load image.');
+                };
+            }
+        });
+    </script>
+</body>
+</html>
 
